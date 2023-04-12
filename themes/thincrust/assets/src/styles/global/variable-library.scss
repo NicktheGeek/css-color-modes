@@ -1,0 +1,135 @@
+body {
+	// Content Width
+	--content-width: var(--wp--custom--layout--content-size);
+	--content-width-wide: var(--wp--custom--layout--wide-size);
+	--content-width-full: 100%;
+
+	// Gutters.
+	// The horizontal gap between content blocks and the browser window frame.
+	--horizontal-window-gutters: var(--spacing-regular);
+	@include mq-max("sm") {
+		--horizontal-window-gutters: var(--spacing-double);
+	}
+	--entry-gutters: var(--horizontal-window-gutters);
+	--header-gutters: var(--horizontal-window-gutters);
+	--footer-gutters: var(--horizontal-window-gutters);
+
+	// Spacing
+	// --wp--custom--layout--block-spacing variable declared in theme.json.
+	--spacing-100: calc(0.1 * var(--wp--custom--layout--block-spacing, 1rem));
+	--spacing-200: calc(0.25 * var(--wp--custom--layout--block-spacing, 1rem));
+	--spacing-300: calc(0.5 * var(--wp--custom--layout--block-spacing, 1rem));
+	--spacing-400: calc(0.75 * var(--wp--custom--layout--block-spacing, 1rem));
+	--spacing-500: var(--wp--custom--layout--block-spacing, 1rem);
+	--spacing-600: calc(1.25 * var(--wp--custom--layout--block-spacing, 1rem));
+	--spacing-700: calc(1.5 * var(--wp--custom--layout--block-spacing, 1rem));
+	--spacing-800: calc(1.75 * var(--wp--custom--layout--block-spacing, 1rem));
+	--spacing-900: calc(2 * var(--wp--custom--layout--block-spacing, 1rem));
+	// Spacing with a different naming scheme.
+	--spacing-regular: var(--wp--custom--layout--block-spacing, 1rem);
+	--spacing-half: calc(0.5 * var(--spacing-regular, 1rem));
+	--spacing-quarter: calc(0.25 * var(--spacing-regular, 1rem));
+	--spacing-double: calc(2 * var(--spacing-regular, 1rem));
+	--spacing-triple: calc(3 * var(--spacing-regular, 1rem));
+	--spacing-quadruple: calc(4 * var(--spacing-regular, 1rem));
+
+	// Line Height
+	--line-height-400: var(1.25);
+	--line-height-500: var(--wp--custom--typography--line-height, 1.5rem);
+	--line-height-regular: var(--wp--custom--typography--line-height, 1.5rem);
+	// Font Size
+	// Font size is based off the --wp--custom--typography--size-baseline variable declared in theme.json
+	--font-size-100: calc(
+		0.25 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+	--font-size-200: calc(
+		0.5 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+	--font-size-300: calc(
+		0.85 * var(--wp--custom--typography--size--baseline, 1rem)
+	);
+	--font-size-400: calc(
+		1 * var(--wp--custom--typography--size--baseline, 1rem)
+	);
+	--font-size-500: calc(
+		1.25 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+	--font-size-600: calc(
+		1.5 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+	--font-size-700: calc(
+		1.75 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+	--font-size-800: calc(
+		2 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+	--font-size-900: calc(
+		2.5 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+	--font-size-1000: calc(
+		3 * var(--wp--custom--typography--size-baseline, 1rem)
+	);
+
+	// Radius
+	--radius-500: 8px; // The default button radius.
+	--radius-regular: 0.5rem;
+	// Colors
+	// Color Neutral
+	--color--neutral-hue: 210;
+	--color--neutral-saturation: 0%;
+	--color--neutral-000: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		100%
+	);
+	--color--neutral-100: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		90%
+	);
+	--color--neutral-200: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		80%
+	);
+	--color--neutral-300: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		70%
+	);
+	--color--neutral-400: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		60%
+	);
+	--color--neutral-500: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		50%
+	);
+	--color--neutral-600: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		40%
+	);
+	--color--neutral-700: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		30%
+	);
+	--color--neutral-800: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		20%
+	);
+	--color--neutral-900: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		10%
+	);
+	--color--neutral-1000: hsl(
+		var(--color--neutral-hue),
+		var(--color--neutral-saturation),
+		0%
+	);
+}

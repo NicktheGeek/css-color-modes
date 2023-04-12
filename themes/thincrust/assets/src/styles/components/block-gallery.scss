@@ -1,0 +1,7 @@
+.wp-block-gallery[class] {
+	&:not(.has-nested-images),
+	&:not(.alignleft, .alignright) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

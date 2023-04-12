@@ -1,0 +1,277 @@
+@at-root {
+	body {
+		--menu-mobile-toggle-filter: brightness(100);
+		--menu-mobile-padding: calc(
+				(
+						var(--header-min-height) -
+							var(--header-menu-mobile-toggle-size)
+					) / 2
+			)
+			calc(var(--header-gutters) / 2);
+		--menu-mobile-color-background: var(--header-color-background);
+		--menu-mobile-list-padding: var(--header-menu-mobile-toggle-size) 0 0 0;
+		--menu-mobile-sub-menu-button-size: var(
+			--header-menu-mobile-toggle-size
+		);
+	}
+}
+
+// ===================
+// Mobile menu toggle.
+// ===================
+
+.thincrust-mobile-menu__toggle__button {
+	cursor: pointer;
+
+	background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE3IiB2aWV3Qm94PSIwIDAgMjQgMTciIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjNmQ2ZjdiIj48cGF0aCBkPSJtMCAxNGgyNHYzaC0yNHoiLz48cGF0aCBkPSJtMCAxNGgyNHYzaC0yNHoiLz48cGF0aCBkPSJtMCAxNGgyNHYzaC0yNHoiLz48cGF0aCBkPSJtMCA3aDI0djNoLTI0eiIvPjxwYXRoIGQ9Im0wIDdoMjR2M2gtMjR6Ii8+PHBhdGggZD0ibTAgN2gyNHYzaC0yNHoiLz48cGF0aCBkPSJtMCAwaDI0djNoLTI0eiIvPjxwYXRoIGQ9Im0wIDBoMjR2M2gtMjR6Ii8+PHBhdGggZD0ibTAgMGgyNHYzaC0yNHoiLz48L2c+PC9zdmc+);
+	filter: var(--menu-mobile-toggle-filter);
+	background-color: transparent;
+	border: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: var(--header-menu-mobile-toggle-size)
+		var(--header-menu-mobile-toggle-size);
+	display: inline-block;
+
+	overflow: hidden;
+	user-select: none;
+	text-indent: 100%;
+	white-space: nowrap;
+
+	width: var(--header-menu-mobile-toggle-size);
+	height: var(--header-menu-mobile-toggle-size);
+
+	z-index: 4;
+}
+
+// ============
+// Mobile menu.
+// ============
+
+.thincrust-mobile-menu {
+	background-color: var(--menu-mobile-color-background);
+	max-height: 100%;
+
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin-top: var(--admin-bar-height, 0px);
+
+	transition-duration: 0.3s;
+	transition-property: transform;
+	transition-timing-function: ease;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	z-index: 2;
+
+	padding: var(--menu-mobile-padding);
+
+	display: grid;
+	> * {
+		grid-area: 1 / -1;
+		align-self: start;
+	}
+
+	&[data-thincrust-pin-to-side="left"] {
+		transform: translateX(-100%);
+		nav.thincrust-mobile-menu__nav {
+			justify-self: end;
+		}
+		& .thincrust-mobile-menu__toggle {
+			justify-self: start;
+		}
+	}
+
+	&:not([data-thincrust-pin-to-side]),
+	&[data-thincrust-pin-to-side="right"] {
+		transform: translateX(100%);
+		nav.thincrust-mobile-menu__nav {
+			justify-self: start;
+		}
+		& .thincrust-mobile-menu__toggle {
+			justify-self: end;
+		}
+	}
+
+	.thincrust-mobile-menu__toggle {
+		background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMSIgdmlld0JveD0iMCAwIDEwMCAxMDEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTEuMTExMSAwTDAgMTEuMTExMUwzOS4yODM3IDUwLjM5NDhMMCA4OS42Nzg2TDExLjExMTEgMTAwLjc5TDUwLjM5NDggNjEuNTA1OUw4OC44ODkgMTAwTDEwMCA4OC44ODkxTDYxLjUwNTggNTAuMzk0OEwxMDAgMTEuOTAwNkw4OC44ODkgMC43ODk1NTFMNTAuMzk0OCAzOS4yODM4TDExLjExMTEgMFoiIGZpbGw9IiM2NjY2NjYiLz4KPC9zdmc+Cg==);
+	}
+
+	nav.thincrust-mobile-menu__nav {
+		width: 100%;
+		ul {
+			display: grid;
+			grid-auto-rows: minmax(0, 1fr);
+			grid-auto-flow: row;
+			gap: var(--spacing-regular);
+			padding: var(--menu-mobile-list-padding);
+			width: 100%;
+			> li {
+				width: 100%;
+				position: relative;
+				flex-basis: 0;
+				flex-grow: 1;
+				align-content: center;
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+				a:not(.thincrust-button):not([class*="thincrust-dropdown"]) {
+					& {
+						color: var(--header-color-text);
+						display: block;
+						text-decoration: none;
+						padding-top: var(--header-menu-item-padding);
+						padding-bottom: var(--header-menu-item-padding);
+						padding-left: var(--header-menu-item-padding);
+						padding-right: var(--header-menu-item-padding);
+						white-space: nowrap;
+					}
+
+					&:hover {
+						color: var(--color--neutral-200);
+						text-decoration: none;
+					}
+				}
+				&.menu-item-has-children {
+					> button.menu-sub-menu-trigger {
+						cursor: pointer;
+						line-height: 1;
+						justify-self: end;
+						transition: transform 0.3s ease-in-out;
+						background: transparent;
+						flex-grow: 1;
+						display: flex;
+						justify-content: end;
+						padding: 0;
+						border: 0;
+						svg {
+							display: flex;
+							justify-content: center;
+							align-content: center;
+							align-items: center;
+							border-radius: 5px;
+							transition: transform 0.3s ease-in-out;
+							width: 100%;
+							height: 100%;
+							width: var(
+								--menu-mobile-sub-menu-button-size,
+								22px
+							);
+							height: var(
+								--menu-mobile-sub-menu-button-size,
+								22px
+							);
+							fill: white;
+							background: #000000;
+							color: white;
+							aspect-ratio: 1/1;
+						}
+					}
+					> ul.sub-menu {
+						backdrop-filter: blur(10px);
+						background: rgba(0, 0, 0, 0.9);
+						left: 0;
+						min-width: 195px;
+						opacity: 0;
+						padding-top: calc(
+							var(--menu-mobile-sub-menu-button-size) / 2
+						);
+						padding-bottom: 20px;
+						padding-left: 0;
+						padding-right: 25px;
+						pointer-events: none;
+						position: absolute;
+						right: 0;
+						top: 100%;
+						transition: opacity 0.3s ease-in-out;
+						width: 100%;
+						z-index: 999;
+						li {
+							padding-left: 5px;
+						}
+					}
+
+					&.menu-visible {
+						background: rgba(0, 0, 0, 1);
+						> a {
+							padding-left: var(--header-menu-item-padding);
+							background: rgba(0, 0, 0, 1);
+						}
+						.sub-menu {
+							opacity: 1;
+							pointer-events: all;
+						}
+						.menu-sub-menu-trigger svg {
+							transform: rotate(90deg);
+						}
+					}
+					// When the <li> is hovered, show the sub menu.
+					@media (pointer: fine) {
+						&:hover,
+						&:focus-within {
+							> a {
+								padding-left: 5px;
+								background: rgba(0, 0, 0, 1);
+							}
+							> .sub-menu {
+								opacity: 1;
+								pointer-events: all;
+							}
+							> .menu-sub-menu-trigger svg {
+								transform: rotate(90deg);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// ================================
+// Mobile Menu Visibility Triggers.
+// ================================
+
+@at-root {
+	body.mobile-menu-visible header[role="banner"] .site-header-inner {
+		// When the hidden check is checked, the label's background image for the toggle changes.
+		.thincrust-mobile-menu__toggle__button {
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMSIgdmlld0JveD0iMCAwIDEwMCAxMDEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTEuMTExMSAwTDAgMTEuMTExMUwzOS4yODM3IDUwLjM5NDhMMCA4OS42Nzg2TDExLjExMTEgMTAwLjc5TDUwLjM5NDggNjEuNTA1OUw4OC44ODkgMTAwTDEwMCA4OC44ODkxTDYxLjUwNTggNTAuMzk0OEwxMDAgMTEuOTAwNkw4OC44ODkgMC43ODk1NTFMNTAuMzk0OCAzOS4yODM4TDExLjExMTEgMFoiIGZpbGw9IiM2NjY2NjYiLz4KPC9zdmc+Cg==);
+		}
+
+		// This brings the mobile menu into view when the toggle is checked.
+		.thincrust-mobile-menu {
+			transform: translateX(0);
+		}
+	}
+}
+
+// ======================
+// Media query overrides.
+// ======================
+
+// For mobile/tablet.
+@include mq("sm") {
+	.thincrust-mobile-menu [aria-hidden="true"] {
+		display: none;
+	}
+
+	// This hides the main navigation menu on mobile.
+	.thincrust-mobile-menu {
+		display: none;
+	}
+}
+
+// Above tablet, hide the mobile menu elements
+.thincrust-mobile-menu,
+.thincrust-mobile-menu__nav,
+.thincrust-mobile-menu__toggle,
+.thincrust-mobile-menu__toggle__button {
+	@include mq("sm") {
+		display: none;
+	}
+}

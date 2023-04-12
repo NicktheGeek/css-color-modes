@@ -1,0 +1,22 @@
+// Variables
+@at-root {
+	body {
+		--block--cover--background-dim-overlay-color: #fff;
+	}
+}
+
+.wp-block-cover[class] {
+	&.has-background-dim:not([class*="-background-color"]),
+	&
+		.wp-block-cover-image
+		.has-background-dim:not([class*="-background-color"]),
+	&.has-background-dim:not([class*="-background-color"]),
+	&.has-background-dim:not([class*="-background-color"]) {
+		background: var(--block--cover--background-dim-overlay-color);
+	}
+	.wp-block-cover__inner-container {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

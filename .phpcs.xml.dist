@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<ruleset name="Reaktiv Standards">
+	<description>The code standard for a Reaktiv Project.</description>
+
+	<!-- What to scan -->
+	<file>.</file>
+	<exclude-pattern>client-mu-plugins/plugin-loader.php</exclude-pattern>
+	<exclude-pattern>mu-plugins/</exclude-pattern>
+	<exclude-pattern>plugins/</exclude-pattern>
+	<exclude-pattern>plugins/hello.php</exclude-pattern>
+	<exclude-pattern>plugins/index.php</exclude-pattern>
+	<exclude-pattern>tests/</exclude-pattern>
+	<exclude-pattern>themes/twentyseventeen</exclude-pattern>
+	<exclude-pattern>themes/index.php</exclude-pattern>
+	<exclude-pattern>index.php</exclude-pattern>
+	<exclude-pattern>vendor/</exclude-pattern>
+	<exclude-pattern>node_modules/</exclude-pattern>
+	<exclude-pattern>vip-config/</exclude-pattern>
+	<!-- Exclude Built Files -->
+	<exclude-pattern>themes/thincrust/assets/dist/</exclude-pattern>
+
+	<!-- How to scan -->
+	<arg value="sp"/> <!-- Show sniff and progress -->
+	<arg name="basepath" value="."/><!-- Strip the file paths down to the relevant bit -->
+	<arg name="colors" />
+	<arg name="extensions" value="php"/>
+	<arg name="report" value="full"/>
+	<arg name="report" value="summary"/>
+	<arg name="report" value="source"/>
+	<arg name="parallel" value="9"/>
+
+	<!-- Rules: WordPress Coding Standards -->
+	<config name="minimum_supported_wp_version" value="6.0"/>
+	<rule ref="WordPress">
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/>
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals"/>
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions.user_meta_get_user_meta"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions.user_meta_update_user_meta"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions.user_meta_delete_user_meta"/>
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array" value="rkv,thincrust"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array" value="thincrust,thincrust-blocks,thincrust-utilities"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
+		<properties>
+			<property name="blank_line_check" value="true"/>
+		</properties>
+	</rule>
+	<!-- Check code for cross-version PHP compatibility. -->
+	<config name="testVersion" value="8.0-"/>
+	<rule ref="PHPCompatibility">
+		<!-- Exclude PHP constants back-filled by PHPCS. -->
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_finallyFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_yieldFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_ellipsisFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_powFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_pow_equalFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_spaceshipFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_coalesceFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_coalesce_equalFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_yield_fromFound"/>
+
+		<!-- Unclear how, but appears to be back-filled anyhow, could be that PHP did so before the token was in use. -->
+		<exclude name="PHPCompatibility.PHP.NewConstants.t_traitFound"/>
+	</rule>
+	<rule ref="WordPress-VIP-Go" />
+</ruleset>

@@ -1,0 +1,2 @@
+// Editor
+import "./source/blockEditorPageStyle";

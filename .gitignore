@@ -1,0 +1,21 @@
+# Ignore build related files.
+*.sass-cache*
+.DS_Store
+bower_components
+build
+dist
+node_modules
+npm-debug.log
+sassdoc
+style.css.map
+.nova
+debug.log
+uploads.pantheon_moved
+uploads
+
+plugins/*
+vendor/
+client-mu-plugins/*
+
+#Plugins
+!plugins/thincrust-blocks

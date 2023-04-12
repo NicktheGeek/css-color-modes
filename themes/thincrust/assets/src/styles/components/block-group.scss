@@ -1,0 +1,14 @@
+// Variables
+@at-root {
+	body {
+		--block--group-padding: 0px;
+		--block--group-padding-has-background: var(--spacing-regular);
+	}
+}
+
+.wp-block-group[class] {
+	padding: var(--block--group-padding);
+	&.has-background {
+		--block--group-padding: var(--block--group-padding-has-background);
+	}
+}

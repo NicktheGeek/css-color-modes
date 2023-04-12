@@ -1,0 +1,23 @@
+// Entry Header
+.entry-header {
+	@include entry-padding;
+
+	.entry-title {
+		font-size: var(--wp--preset--font-size--x-large);
+		line-height: var(--line-height-400);
+	}
+	.wp-post-image {
+		max-width: 100%;
+		height: auto;
+	}
+}
+// Entry Content - The Block Area
+.entry-content {
+	// Blocks, etc.
+	@import "../components/";
+}
+// Entry Footer
+.entry-footer {
+	clear: both;
+	@include entry-padding;
+}

@@ -1,0 +1,21 @@
+.wp-block-query-pagination,
+.pagination {
+	display: flex;
+	justify-content: center;
+	padding: var(--spacing-700, 36px) 0;
+	gap: var(--spacing-800, 45px);
+	> * {
+		margin: 0;
+		padding: 0;
+	}
+	* {
+		font-weight: 400;
+		font-size: var(--font-size-300);
+		line-height: 1.75;
+		color: var(--color--neutral-1000);
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}

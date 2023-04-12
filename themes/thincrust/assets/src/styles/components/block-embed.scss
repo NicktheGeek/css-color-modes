@@ -1,0 +1,20 @@
+@at-root {
+	body {
+		--block--embed-object-width: 100%;
+		--block--embed-object-aspect-ratio: auto;
+	}
+}
+
+.wp-block-embed[class] {
+	> .wp-block-embed__wrapper {
+		> * {
+			margin: 0 auto;
+			width: var(--block--embed-object-width);
+			aspect-ratio: var(--block--embed-object-aspect-ratio);
+			height: auto;
+		}
+	}
+	&.wp-embed-aspect-16-9 {
+		--block--embed-object-aspect-ratio: 16/9;
+	}
+}

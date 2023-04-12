@@ -1,0 +1,321 @@
+// A Very Lightweight Reset.
+
+html {
+	--reset-font-size: 16px;
+	box-sizing: border-box;
+	font-size: var(--reset-font-size);
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	cursor: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+  * Remove the list style on navigation lists in all browsers (opinionated).
+  */
+
+nav ol,
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+/**
+  * Add the correct font weight in Chrome, Edge, and Safari.
+  */
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+/*
+  * Change the alignment on media elements in all browsers (opinionated).
+  */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+/**
+  * Add the correct display in IE 9-.
+  */
+
+audio,
+video {
+	display: inline-block;
+}
+
+/**
+  * Add the correct display in iOS 4-7.
+  */
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/**
+  * Remove the border on iframes in all browsers (opinionated).
+  */
+
+iframe {
+	border-style: none;
+}
+
+/**
+  * Remove the border on images within links in IE 10-.
+  */
+
+img {
+	border-style: none;
+}
+
+/**
+  * Change the fill color to match the text color in all browsers (opinionated).
+  */
+
+svg:not([fill]) {
+	fill: currentColor;
+}
+
+/**
+  * Hide the overflow in IE.
+  */
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+/* Tabular data
+  * ========================================================================== */
+
+/**
+  * Collapse border spacing in all browsers (opinionated).
+  */
+
+table {
+	border-collapse: collapse;
+}
+
+/* Forms
+  * ========================================================================== */
+
+/**
+  * Correct the inability to style buttons in iOS and Safari.
+  */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+/**
+  * 1. Remove the margin in Firefox and Safari.
+  * 2. Remove the default vertical scrollbar in IE.
+  * 3. Change the resize direction in all browsers (opinionated).
+  */
+
+textarea {
+	margin: 0; /* 1 */
+	overflow: auto; /* 2 */
+	resize: vertical; /* 3 */
+}
+
+/**
+  * 1. Correct the odd appearance in Chrome, Edge, and Safari.
+  * 2. Correct the outline style in Safari.
+  */
+
+[type="search"] {
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+/**
+  * Correct the cursor style of increment and decrement buttons in Safari.
+  */
+
+*::-webkit-inner-spin-button,
+*::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+  * Correct the text style of placeholders in Chrome, Edge, and Safari.
+  */
+
+*::-webkit-input-placeholder {
+	color: inherit;
+	opacity: 0.54;
+}
+
+/**
+  * Remove the inner padding in Chrome, Edge, and Safari on macOS.
+  */
+
+*::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+  * 1. Correct the inability to style upload buttons in iOS and Safari.
+  * 2. Change font properties to `inherit` in Safari.
+  */
+
+*::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/**
+  * Remove the inner border and padding of focus outlines in Firefox.
+  */
+
+*::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/**
+  * Restore the focus outline styles unset by the previous rule in Firefox.
+  */
+
+*:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+/**
+  * Remove the additional :invalid styles in Firefox.
+  */
+
+*:-moz-ui-invalid {
+	box-shadow: none;
+}
+
+/* User interaction
+  * ========================================================================== */
+
+/*
+  * 1. Remove the tapping delay in IE 10.
+  * 2. Remove the tapping delay on clickable elements
+	   in all browsers (opinionated).
+  */
+
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+	-ms-touch-action: manipulation; /* 1 */
+	touch-action: manipulation; /* 2 */
+}
+
+/**
+  * Add the correct display in IE 10-.
+  */
+
+[hidden] {
+	display: none;
+}
+
+/* Accessibility
+  * ========================================================================== */
+
+/**
+  * Change the cursor on busy elements in all browsers (opinionated).
+  */
+
+[aria-busy="true"] {
+	cursor: progress;
+}
+
+/*
+  * Change the cursor on control elements in all browsers (opinionated).
+  */
+
+[aria-controls] {
+	cursor: pointer;
+}
+
+/*
+  * Change the cursor on disabled, not-editable, or otherwise
+  * inoperable elements in all browsers (opinionated).
+  */
+
+[aria-disabled="true"],
+[disabled] {
+	cursor: not-allowed;
+}
+
+/*
+  * Change the display on visually hidden accessible elements
+  * in all browsers (opinionated).
+  */
+
+[aria-hidden="false"][hidden] {
+	display: initial;
+}
+
+[aria-hidden="false"][hidden]:not(:focus) {
+	clip: rect(0, 0, 0, 0);
+	position: absolute;
+}
+
+/*
+ * Base main elements that appear in the content area or the footer. Not the header.
+ */
+
+body .site > *:not(header.site-header) {
+	// Headlines
+	:is(h1, h2, h3, h4, h5, h6) {
+		margin-bottom: var(--spacing-500, 1rem);
+	}
+
+	// Elements
+	:is(p, blockquote, figure, dl, dt, dd, pre, abbr, address, audio, video, table, iframe, ul, ol) {
+		margin-bottom: var(--spacing-500, 1rem);
+		// Child Lists should not have any bottom margin.
+		ul,
+		ol,
+		dl {
+			margin-bottom: 0;
+		}
+	}
+
+	p {
+		line-height: var(--spacing-700, 1.6rem);
+	}
+
+	ul,
+	ol {
+		&.sub-menu {
+			margin-left: var(--spacing-500);
+			margin-bottom: 0;
+		}
+		li {
+			margin-bottom: var(--spacing-100);
+		}
+	}
+}

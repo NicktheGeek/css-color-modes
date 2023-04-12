@@ -1,0 +1,51 @@
+/*!
+Theme Name: Thincrust
+Theme URI: http://reaktiv.co/
+Author: Reaktiv Team
+Author URI: http://reaktiv.co/
+Description: Thincrust, developed by Reaktiv Team
+Version: July 29, 2022
+Tested up to: 8.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: thincrust
+*/
+
+@import "./mixins/";
+@import "global/variable-library";
+@import "reset";
+
+body[class] {
+	// Variables
+	--body-color-text: var(--color--neutral-1000);
+	--body-color-background: var(--color--neutral-000);
+	--wp--style--block-gap: var(--spacing-500, 1rem);
+	// Properties.
+	background: var(--body-color-background);
+	color: var(--body-color-text);
+	font-size: var(--wp--preset--font-size--medium, 18px);
+	font-family: var(--wp--custom--typography--family--baseline, "sans");
+	font-weight: var(--wp--custom--typography--weight--body);
+	// Light layout for page elements.
+	div#page.site {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		& > header {
+			flex: 0 1 var(--header-min-height);
+		}
+		& > main {
+			flex: 1 1 auto;
+		}
+		& > footer {
+			flex: 0 1 auto;
+		}
+	}
+}
+
+@import "global/header";
+@import "global/entry";
+@import "global/forms";
+@import "global/page";
+@import "global/footer";

@@ -1,0 +1,4 @@
+// Provide padding for top level blocks with padding.
+> *.has-background {
+	padding: var(--block--group-padding-has-background);
+}

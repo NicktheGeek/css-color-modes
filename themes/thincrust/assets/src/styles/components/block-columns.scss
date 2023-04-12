@@ -1,0 +1,26 @@
+// Variables
+@at-root {
+	body {
+		--block--columns-gap: var(--spacing-regular);
+		--block--columns-column-padding: 0;
+		--block--columns-column-padding-has-background: var(--spacing-regular);
+	}
+}
+
+.wp-block-columns[class] {
+	// Styles
+	gap: var(--block--columns-gap);
+	.wp-block-column[class] {
+		padding: var(--block--columns-column-padding);
+		&.has-background {
+			--block--columns-column-padding: var(
+				--block--columns-column-padding-has-background
+			);
+		}
+		&:not(.has-background) {
+			*:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,64 @@
+$breakpoints: (
+	xxxs: 280,
+	xxs: 480,
+	xs: 600,
+	sm: 782,
+	md: 960,
+	lg: 1080,
+	xl: 1280,
+	xxl: 1440,
+);
+
+@mixin mq($bp) {
+	@if ($bp == "motion" or $bp == "reduced-motion") {
+		@include mq-reduced-motion() {
+			@content;
+		}
+	} @else if ($bp == "dark") {
+		@include mq-dark() {
+			@content;
+		}
+	} @else if ($bp == "light") {
+		@include mq-light() {
+			@content;
+		}
+	} @else {
+		@include mq-min($bp) {
+			@content;
+		}
+	}
+}
+
+@mixin mq-min($bp) {
+	$breakpoint: map-get($breakpoints, $bp);
+
+	@media (min-width: #{$breakpoint}px) {
+		@content;
+	}
+}
+
+@mixin mq-max($bp) {
+	$breakpoint: map-get($breakpoints, $bp) - 1;
+
+	@media (max-width: #{$breakpoint}px) {
+		@content;
+	}
+}
+
+@mixin mq-reduced-motion() {
+	@media (prefers-reduced-motion) {
+		@content;
+	}
+}
+
+@mixin mq-dark() {
+	@media (prefers-color-scheme: dark) {
+		@content;
+	}
+}
+
+@mixin mq-light() {
+	@media (prefers-color-scheme: light) {
+		@content;
+	}
+}

@@ -1,0 +1,30 @@
+@at-root {
+	body {
+		--block--pullquote-font-size: 28px;
+		--block--pullquote-line-height: 1.29;
+		--block--pullquote-padding-vertical: 56px;
+		--block--pullquote-border: none;
+	}
+}
+.wp-block-pullquote[class] {
+	// Styles
+	padding-top: var(--block--pullquote-padding-vertical);
+	padding-bottom: var(--block--pullquote-padding-vertical);
+	border: var(--block--pullquote-border);
+	p {
+		font-style: normal;
+		font-weight: 600;
+		font-size: var(--block--pullquote-font-size);
+		line-height: var(--block--pullquote-line-height);
+	}
+	// If the Pullquote has been assigned a border color.
+	&[style*="border-color"] {
+		--block--pullquote-border: 2px solid;
+	}
+	&.alignleft blockquote {
+		margin-inline-start: 0;
+	}
+	&.alignright blockquote {
+		margin-inline-end: 0;
+	}
+}

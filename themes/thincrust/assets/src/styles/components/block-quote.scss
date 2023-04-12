@@ -1,0 +1,24 @@
+@at-root {
+	body {
+		--block--quote-font-size: 28px;
+		--block--quote-line-height: 1.29;
+		--block--quote-padding-vertical: 10px;
+		--block--quote-margin-veritcal: 40px;
+	}
+}
+
+.wp-block-quote[class] {
+	padding-top: var(--block--quote-padding-vertical);
+	padding-bottom: var(--block--quote-padding-vertical);
+	margin-top: var(--block--quote-margin-veritcal);
+	margin-bottom: var(--block--quote-margin-veritcal);
+	p {
+		font-style: normal;
+		font-weight: 600;
+		font-size: var(--block--quote-font-size);
+		line-height: var(--block--quote-line-height);
+	}
+	&.is-large {
+		--block--quote-font-size: 48px;
+	}
+}

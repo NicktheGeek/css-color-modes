@@ -1,0 +1,26 @@
+{
+  "extends": ["@wordpress/stylelint-config/scss"],
+  "ignoreFiles": ["themes/thincrust/assets/styles/reset.scss"],
+  "rules": {
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": null,
+    "block-no-empty": null,
+    "no-duplicate-selectors": null,
+    "font-family-no-duplicate-names": null,
+    "selector-class-pattern": null,
+    "max-nesting-depth": 4,
+    "function-url-quotes": null,
+    "selector-attribute-quotes": null,
+    "max-line-length": null,
+    "rule-empty-line-before": null,
+    "declaration-property-unit-allowed-list": {
+      "line-height": ["px", "em", "rem"]
+    },
+    "max-empty-lines": null,
+    "no-descending-specificity": null,
+    "font-family-name-quotes": null,
+    "no-invalid-double-slash-comments": null,
+    "function-calc-no-invalid": null,
+    "string-quotes": "double"
+  }
+}

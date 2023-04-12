@@ -1,0 +1,63 @@
+// Variables.
+@at-root {
+	body {
+		--block--headline-font-weight: var(
+			--wp--custom--typography--weight--headline
+		);
+		--block--headline-size-h1: calc(
+			48 / 18 * var(--wp--custom--typography--size--baseline)
+		);
+
+		--block--headline-size-h2: calc(
+			36 / 18 * var(--wp--custom--typography--size--baseline)
+		);
+
+		--block--headline-size-h3: calc(
+			28 / 18 * var(--wp--custom--typography--size--baseline)
+		);
+
+		--block--headline-size-h4: calc(
+			22 / 18 * var(--wp--custom--typography--size--baseline)
+		);
+		--block--headline-size-h5: calc(
+			1 * var(--wp--custom--typography--size--baseline)
+		);
+		--block--headline-size-h6: calc(
+			16 / 18 * var(--wp--custom--typography--size--baseline)
+		);
+	}
+}
+// Styles.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--block--headline-font-weight);
+	line-height: 1.25;
+}
+
+h1 {
+	font-size: var(--block--headline-size-h1);
+}
+
+h2 {
+	font-size: var(--block--headline-size-h2);
+}
+
+h3 {
+	font-size: var(--block--headline-size-h3);
+}
+
+h4 {
+	font-size: var(--block--headline-size-h4);
+}
+
+h5 {
+	font-size: var(--block--headline-size-h5);
+}
+
+h6 {
+	font-size: var(--block--headline-size-h6);
+}

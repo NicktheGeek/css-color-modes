@@ -1,0 +1,16 @@
+.wp-block-media-text[class] {
+	// Variables
+	--block-media-text-gap: var(
+		--block--columns-gap,
+		var(--spacing-regular, 1rem)
+	);
+	// Styles
+	gap: var(--block-media-text-gap);
+	figure {
+		margin-bottom: 0;
+	}
+	.wp-block-media-text__content {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

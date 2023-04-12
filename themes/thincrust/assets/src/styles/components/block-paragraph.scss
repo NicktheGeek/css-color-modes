@@ -1,0 +1,6 @@
+p {
+	line-height: var(--line-height-regular);
+	&.has-background {
+		padding: var(--spacing-regular);
+	}
+}

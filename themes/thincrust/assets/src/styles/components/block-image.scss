@@ -1,0 +1,29 @@
+@at-root {
+	body {
+		--block--image-caption-font-size: var(--font-size-300);
+		--block--image-caption-max-width: 100%;
+		--block--image-caption-alignfull-horizontal-gutters: var(
+			--entry-gutters
+		);
+	}
+}
+
+.wp-block-image[class] {
+	figcaption {
+		font-size: var(--block--image-caption-font-size);
+		display: block;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	// When the image block is aligned wide, the caption needs some horizontal spacing.
+	&:is(.alignfull) figcaption {
+		padding-right: var(--block--image-caption-alignfull-horizontal-gutters);
+		padding-left: var(--block--image-caption-alignfull-horizontal-gutters);
+	}
+	// Override WordPress declaring these as display:table.
+	&:is(.aligncenter, .alignright, .alignleft) {
+		display: block;
+	}
+}

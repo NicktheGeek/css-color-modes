@@ -1,0 +1,53 @@
+{
+  "name": "thincrust",
+  "version": "1.0.0",
+  "description": "A Lightweight Starter Theme from Reaktiv",
+  "author": "Reaktiv Team",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/reaktivstudios/boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reaktivstudios/boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reaktivstudios/boilerplate/issues"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^19.2.2",
+    "dir-archiver": "^1.1.1",
+    "rtlcss": "^3.5.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "start": "npm run start:js && npm run start:blocks && npm run start:scss ",
+    "build": "npm run build:js && npm run build:blocks && npm run build:scss",
+    "start:blocks": "wp-scripts start plugins/thincrust-blocks/src/index.js --output-path=themes/thincrust/assets/dist/blocks --webpack-copy-php",
+    "build:blocks": "wp-scripts build plugins/thincrust-blocks/src/index.js --output-path=themes/thincrust/assets/dist/blocks --webpack-copy-php",
+    "start:scss": "sass themes/thincrust/assets/src/styles/main.scss:themes/thincrust/assets/dist/main.css themes/thincrust/assets/src/styles/editor.scss:.themes/thincrust/assets/dist/editor.css --watch --no-error-css  --style=expanded",
+    "build:scss": "sass themes/thincrust/assets/src/styles/main.scss:themes/thincrust/assets/dist/main.css themes/thincrust/assets/src/styles/editor.scss:themes/thincrust/assets/dist/editor.css",
+    "start:js": "wp-scripts start main=./themes/thincrust/assets/src/js/main.js editor=./themes/thincrust/assets/src/js/editor.js --output-path=themes/thincrust/assets/dist/ --webpack-copy-php",
+    "build:js": "wp-scripts build main=./themes/thincrust/assets/src/js/main.js  editor=./themes/thincrust/assets/src/js/editor.js --output-path=themes/thincrust/assets/dist/ --webpack-copy-php",
+    "lint:scss": "wp-scripts lint-style 'themes/thincrust/assets/src/styles/**/*.scss' --fix",
+    "lint:js": "wp-scripts lint-js 'js/*.js'",
+    "bundle": "dir-archiver --src . --dest ../thincrust.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+  },
+  "dependencies": {
+    "sass": "^1.53.0"
+  }
+}

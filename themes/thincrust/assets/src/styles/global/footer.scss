@@ -1,0 +1,69 @@
+@at-root {
+	body {
+		// Footer
+		--footer-color-text: var(--color--neutral-000);
+		--footer-color-background: var(--color--neutral-1000);
+		--footer-max-width: var(--content-width-wide);
+		--footer-gap: var(--spacing-quadruple);
+		@include mq-max("sm") {
+			--footer-gap: var(--spacing-double);
+		}
+		--footer-block-gap: var(--spacing-double);
+	}
+}
+
+footer.site-footer {
+	background: var(--footer-color-background);
+	color: var(--footer-color-text);
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.site-footer-inner {
+		// Redefine.
+		--wp--style--block-gap: var(--footer-block-gap);
+		// Sizing.
+		padding: var(--footer-gutters) 0;
+		width: var(--footer-max-width);
+		max-width: calc(100% - var(--footer-gutters));
+		height: 100%;
+		margin: 0 auto;
+		// Internal Layout
+		display: grid; // Using Grid.
+		grid-template-areas: "title blocks"; // This presentation uses just two grid areas.
+		grid-template-columns: auto minmax(0, 1fr);
+		align-items: start;
+		justify-content: space-between;
+		align-content: start;
+		gap: var(--footer-gap);
+		@include mq-max("sm") {
+			display: flex;
+			flex-flow: column;
+		}
+
+		.footer-site-title {
+			grid-area: title;
+		}
+
+		.footer-blocks {
+			grid-area: blocks;
+			place-self: end;
+			gap: var(--footer-block-gap);
+			@include mq-max("sm") {
+				place-self: unset;
+			}
+			display: flex;
+			.widget.widget_block {
+				// Undo WP Core rule.
+				[class*="wp-container"] > * + * {
+					margin-block-start: unset;
+				}
+				ul {
+					list-style: none;
+				}
+			}
+		}
+	}
+}

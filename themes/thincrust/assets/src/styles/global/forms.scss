@@ -1,0 +1,43 @@
+form {
+	// Layouts
+	&[role="search"] {
+		// Align the elements on a single line, matching heights.
+		display: flex;
+		align-items: stretch;
+		gap: var(--spacing-half);
+	}
+	// Elements.
+	fieldset {
+		border: none;
+	}
+	input,
+	textarea {
+		font-size: var(--font-size-400);
+		padding: var(--block--button-padding, 10px 4px 7px);
+		border: var(--color--neutral-700) 1px solid;
+	}
+	input[type="submit"],
+	button,
+	button[type="submit"] {
+		// Inherits the styling from the Block Button.
+		display: inline-flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: var(--block--button-padding);
+		gap: var(--wp--custom--layout--block-spacing, 0.5rem);
+
+		font-size: var(--block--button-font-size);
+		line-height: var(--block--button-line-height);
+
+		color: var(--block--button-color);
+		background-color: var(--block--button-background-color);
+
+		border-radius: var(--block--button-border-radius);
+		border: none;
+		cursor: pointer;
+		&:hover {
+			background: var(--color--neutral-1000);
+		}
+	}
+}

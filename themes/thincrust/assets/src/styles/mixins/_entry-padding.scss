@@ -1,0 +1,13 @@
+// Provides base layout for an entry content element.
+@mixin entry-padding {
+	width: var(--content-width);
+	margin: 0 auto var(--spacing-regular);
+	max-width: calc(100% - var(--entry-gutters));
+	@include mq-max("sm") {
+		&:not(.alignfull) {
+			// Redefine --entry-content-gutters on mobile, which will change the overall width of the element.
+			// But this is commented out because we are doing that work in the Variable Library.
+			// --entry-gutters: var(--spacing-regular);
+		}
+	}
+}

@@ -1,0 +1,82 @@
+@at-root {
+	body {
+		// Header
+		--header-color-text: var(--color--neutral-000);
+		--header-color-background: var(--color--neutral-1000);
+		--header-min-height: 50px;
+		--header-max-width: var(--content-width-wide);
+		--admin-bar-height: 0px;
+		//// Main top level menu
+		--header-menu-color-text: var(--header-color-text);
+		--header-menu-color-background: var(--header-color-background);
+		--header-menu-mobile-toggle-size: 18px;
+		--header-menu-font-weight: 500;
+		--header-menu-font-size: var(--font-size-300);
+		--header-menu-item-padding: var(--spacing-500)
+			calc(var(--spacing-300) / 2);
+		@include mq("lg") {
+			--header-menu-font-size: var(--font-size-400);
+			--header-menu-item-padding: var(--spacing-500)
+				calc(var(--spacing-500) / 2);
+		}
+	}
+}
+
+header[role="banner"] {
+	background: var(--header-color-background);
+	color: var(--header-color-text);
+
+	margin-bottom: var(--spacing-double);
+	z-index: 2;
+	// Parent selector for when the title is hidden.
+	body.thincrust-title-is-hidden & {
+		margin-bottom: 0;
+	}
+
+	body.admin-bar & {
+		@media only screen and (min-width: 782px) {
+			--admin-bar-height: 32px;
+		}
+		--admin-bar-height: 46px;
+	}
+
+	&.sticky-header {
+		position: sticky;
+		top: var(--admin-bar-height);
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.site-header-inner {
+		// Header Layout
+		display: grid; // Using Grid.
+		grid-template-areas: "title navigation"; // This presentation uses just two grid areas.
+		align-items: center;
+		justify-content: space-between;
+		align-content: center;
+		margin: 0 auto;
+		padding: 0;
+		min-height: var(--header-min-height);
+		width: var(--header-max-width);
+		max-width: calc(100% - var(--header-gutters));
+		height: 100%;
+		// Header Layout Elements
+		.site-title {
+			grid-area: title;
+		}
+		nav {
+			grid-area: navigation;
+		}
+		.thincrust-mobile-menu__toggle {
+			grid-area: navigation;
+		}
+
+		// Mobile Menu
+		@import "menu-mobile";
+		// Main Menu
+		@import "menu-main";
+	}
+}

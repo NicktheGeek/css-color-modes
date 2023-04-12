@@ -1,0 +1,66 @@
+// Global Alignments
+.alignleft {
+	float: left;
+	margin-right: var(--wp--custom--layout--block-spacing);
+}
+
+.alignright {
+	float: right;
+	margin-left: var(--wp--custom--layout--block-spacing);
+}
+
+.aligncenter {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+// Text Alignments
+.has-text-align-left {
+	text-align: left;
+}
+
+.has-text-align-right {
+	text-align: right;
+}
+
+.has-text-align-center {
+	text-align: center;
+}
+
+// Top Level Blocks.
+> * {
+	// The mixin provides the basics for a content area child element.
+	@include entry-padding;
+	// Align Wide Blocks.
+	&.alignwide {
+		width: var(--content-width-wide);
+	}
+	// Align Full Blocks
+	&.alignfull {
+		width: 100%;
+		max-width: 100%;
+	}
+	// Align Left Blocks.
+	&.alignleft {
+		margin-left: clamp(
+			calc(var(--entry-gutters) / 2),
+			calc((100% - var(--content-width)) / 2),
+			100%
+		);
+		text-align: left;
+	}
+	// Align Right Blocks.
+	&.alignright {
+		margin-right: clamp(
+			calc(var(--entry-gutters) / 2),
+			calc((100% - var(--content-width)) / 2),
+			100%
+		);
+		text-align: right;
+	}
+	// Align None Blocks.
+	&.alignnone {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

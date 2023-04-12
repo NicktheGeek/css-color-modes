@@ -1,0 +1,37 @@
+@import "./mixins/";
+@import "global/variable-library";
+@import "reset";
+
+// Define the Editor CSS Variables.
+#editor {
+	--editor--font-face-body: var(
+		--wp--custom--typography--family--baseline,
+		"sans"
+	);
+	--editor--font-face-headline: var(
+		--wp--custom--typography--family--baseline,
+		"sans"
+	);
+	--editor--background-color: var(--color--neutral-000);
+	--editor--color: var(--color--neutral-1000);
+	--wp--style--block-gap: var(--spacing-500, 1rem);
+}
+
+// Post Title
+.edit-post-visual-editor__post-title-wrapper[class] {
+	font-family: var(--editor--font-face-body);
+}
+
+// Post Content. The Block Area.
+.editor-styles-wrapper[class] {
+	.block-editor-block-list__layout.is-root-container[class] {
+		background: var(--editor--background-color);
+		color: var(--editor--color);
+		font-size: var(--wp--preset--typography--size--medium, 18px);
+		font-family: var(--editor--font-face-body);
+		font-weight: var(--wp--custom--typography--weight--body);
+
+		// Blocks, etc.
+		@import "./components/";
+	}
+}

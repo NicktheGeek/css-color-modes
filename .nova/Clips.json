@@ -1,0 +1,9 @@
+{
+  "clips" : [
+    {
+      "content" : "@at-root {\n\tbody {\n\t\t$0\n\t}\n}",
+      "name" : "@at-root body deeclration",
+      "trigger" : "9"
+    }
+  ]
+}

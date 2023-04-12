@@ -1,0 +1,26 @@
+{
+	"source": {
+		"include": [
+			"plugins/thincrust-blocks/src",
+			"themes/thincrust/assets/src/js"
+		],
+		"exclude": [],
+		"includePattern": ".+\\.js(doc|x)?$",
+		"excludePattern": "(^|\\/|\\\\)_"
+	},
+	"opts": {
+		"recurse": true,
+        "package": "package.json"
+	},
+	"plugins": [],
+	"recurseDepth": 10,
+	"sourceType": "module",
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": ["jsdoc", "closure"]
+	},
+	"templates": {
+		"cleverLinks": false,
+		"monospaceLinks": false
+	}
+}
