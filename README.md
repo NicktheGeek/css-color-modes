@@ -2,13 +2,7 @@
 
 **A lightweight starter theme for Reaktiv**
 
-Staging Site: boilerplate.reaktivdev.com
-
-### Features
-
-#### MU Plugins
-
-• Reaktiv SSO - Simplify login without needing to create a user. Just use your Reaktiv email.
+This demo is built on the Thincrust starter theme. The goal is to show how to use more modern media queries to honor user preferences.
 
 ### Installation & Setup
 
@@ -43,7 +37,3 @@ In the spirit of extensibility, the root `functions.php` is meant to be bare, wi
     A commonly used set of rules to define a base layout for a an element that spans the width of the available space, minus a outside horizontal space to provide visual gap between the element and the edge of the browser window.
 
     For example, this is used to define the layout for an unaligned block element.
-
-### Variable Naming Conventions
-
-TBD
