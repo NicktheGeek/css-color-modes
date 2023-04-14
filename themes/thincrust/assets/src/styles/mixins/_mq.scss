@@ -22,6 +22,18 @@ $breakpoints: (
 		@include mq-light() {
 			@content;
 		}
+	} @else if ($bp == "inverted") {
+		@include mq-inverted() {
+			@content;
+		}
+	} @else if ($bp == "forced") {
+		@include mq-forced-colors() {
+			@content;
+		}
+	} @else if ($bp == "contrast") {
+		@include mq-contrast-more() {
+			@content;
+		}
 	} @else {
 		@include mq-min($bp) {
 			@content;
@@ -59,6 +71,24 @@ $breakpoints: (
 
 @mixin mq-light() {
 	@media (prefers-color-scheme: light) {
+		@content;
+	}
+}
+
+@mixin mq-inverted() {
+	@media (inverted-colors: inverted) {
+		@content;
+	}
+}
+
+@mixin mq-forced-colors() {
+	@media (forced-colors: active) {
+		@content;
+	}
+}
+
+@mixin mq-contrast-more() {
+	@media (prefers-contrast: more) {
 		@content;
 	}
 }

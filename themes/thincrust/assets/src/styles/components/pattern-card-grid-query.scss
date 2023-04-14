@@ -24,6 +24,17 @@
 				border-radius: var(--radius-500);
 				padding: 0 0 var(--spacing-regular);
 				overflow: hidden;
+				transition: transform 300ms;
+
+				&:hover,
+				&:focus-within {
+					transform: scale(1.05);
+
+					@include mq-reduced-motion() {
+						transform: none;
+					}
+				}
+
 				> *:not(.wp-block-post-featured-image) {
 					padding: 0 var(--spacing-regular);
 				}

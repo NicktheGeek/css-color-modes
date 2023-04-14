@@ -35,10 +35,8 @@
     "map": false
   },
   "scripts": {
-    "start": "npm run start:js && npm run start:blocks && npm run start:scss ",
-    "build": "npm run build:js && npm run build:blocks && npm run build:scss",
-    "start:blocks": "wp-scripts start plugins/thincrust-blocks/src/index.js --output-path=themes/thincrust/assets/dist/blocks --webpack-copy-php",
-    "build:blocks": "wp-scripts build plugins/thincrust-blocks/src/index.js --output-path=themes/thincrust/assets/dist/blocks --webpack-copy-php",
+    "start": "npm run start:scss ",
+    "build": "npm run build:scss",
     "start:scss": "sass themes/thincrust/assets/src/styles/main.scss:themes/thincrust/assets/dist/main.css themes/thincrust/assets/src/styles/editor.scss:.themes/thincrust/assets/dist/editor.css --watch --no-error-css  --style=expanded",
     "build:scss": "sass themes/thincrust/assets/src/styles/main.scss:themes/thincrust/assets/dist/main.css themes/thincrust/assets/src/styles/editor.scss:themes/thincrust/assets/dist/editor.css",
     "start:js": "wp-scripts start main=./themes/thincrust/assets/src/js/main.js editor=./themes/thincrust/assets/src/js/editor.js --output-path=themes/thincrust/assets/dist/ --webpack-copy-php",

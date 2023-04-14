@@ -2,7 +2,7 @@
 	body {
 		// Header
 		--header-color-text: var(--color--neutral-000);
-		--header-color-background: var(--color--neutral-1000);
+		--header-color-background: var(--wp--preset--color--teal);
 		--header-min-height: 50px;
 		--header-max-width: var(--content-width-wide);
 		--admin-bar-height: 0px;
@@ -18,6 +18,18 @@
 			--header-menu-font-size: var(--font-size-400);
 			--header-menu-item-padding: var(--spacing-500)
 				calc(var(--spacing-500) / 2);
+		}
+
+		@include mq-inverted() {
+			--header-color-background: var(--color--neutral-1000);
+		}
+
+		@include mq-contrast-more() {
+			--header-color-background: var(--wp--preset--color--blue);
+		}
+
+		@include mq-dark() {
+			--header-color-background: var(--wp--preset--color--blue-dark);
 		}
 	}
 }

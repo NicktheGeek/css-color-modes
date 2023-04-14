@@ -57,6 +57,11 @@
           "color": "#0052A7"
         },
         {
+          "name": "Dark Blue",
+          "slug": "blue-dark",
+          "color": "#00008B"
+        },
+        {
           "name": "Teal",
           "slug": "teal",
           "color": "#00646E"
